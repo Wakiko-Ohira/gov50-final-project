@@ -6,7 +6,20 @@ output:
   distill::distill_article:
     self_contained: false
 ---
+```{r}
+load("/Users/wakiko/Mac Google Drive/Harvard/Courses/Gov 50_Blackwell/afrobarometer2016.RData")
+```
 
+```{r}
+library(haven)
+round8 <- read_sav("data/afrobarometer_release-dataset_merge-34ctry_r8_en_2023-03-01.sav")
+```
+
+```{r}
+#remotes::install_github("xmarquez/democracyData")
+library(democracyData)
+polity <- democracyData::polity5
+```
 
 
 ## Project thoughts
