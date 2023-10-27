@@ -53,3 +53,13 @@ R8_trust <-
          "TL trust" = "Q41K")
 ```
 
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+R2_trust_Botswana <-
+  R2_trust |>
+  filter(country == 1) 
+  
+```
+
