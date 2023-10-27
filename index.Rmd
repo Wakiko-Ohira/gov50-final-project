@@ -68,13 +68,6 @@ R7_trust <-
 ```
 
 ```{r}
-## case_when
-
-R2_trust <- R2_trust |>
-  mutate(country_name = case_when(country == 1 ~ "Botswana",
-                                  
-                                  TRUE ~ NA_character_))
-
 ## another method 
 R2_trust$country_name <- NA_character_
 R2_trust$country_name[R2_trust$country==1] <- "Botswana"
@@ -140,6 +133,12 @@ R2_trust |>
   filter(LG_trust %in% c("2", "3")) |>
   group_by(country_name) |>
   summarize(n = n()) |>
-  mutate(prop_LG_trust_high = n / sum(n)) 
+  mutate(LG_trust_high = n / sum(n))
+
+R2_trust |>
+  filter(TL_trust %in% c("2", "3")) |>
+  group_by(country_name) |>
+  summarize(n = n()) |>
+  mutate(TL_trust_high = n / sum(n))
 ```
 
