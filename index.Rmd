@@ -39,3 +39,17 @@ R8_trust <-
   select(c(COUNTRY, Q41D, Q41K))
 ```
 
+```{r}
+names(R2_trust) 
+names(R8_trust)
+
+R2_trust <-
+  rename(R2_trust, "TL trust" = "q43k")
+
+R8_trust <-
+  rename(R8_trust,
+         "country" = "COUNTRY",
+         "LG trust" = "Q41D",
+         "TL trust" = "Q41K")
+```
+
