@@ -134,6 +134,12 @@ R7_trust$country_name[R7_trust$country==34] <- "Zimbabwe"
 ```
 
 ```{r}
+library(tidyverse)
 
+R2_trust |>
+  filter(LG_trust %in% c("2", "3")) |>
+  group_by(country_name) |>
+  summarize(n = n()) |>
+  mutate(prop_LG_trust_high = n / sum(n)) 
 ```
 
