@@ -133,12 +133,12 @@ R2_trust |>
   filter(LG_trust %in% c("2", "3")) |>
   group_by(country_name) |>
   summarize(n = n()) |>
-  mutate(LG_trust_high = n / sum(n))
+  mutate(prop_LG_trust_high = n / sum(n))
 
 R2_trust |>
   filter(TL_trust %in% c("2", "3")) |>
   group_by(country_name) |>
   summarize(n = n()) |>
-  mutate(TL_trust_high = n / sum(n))
+  mutate(prop_TL_trust_high = n / sum(n))
 ```
 
