@@ -95,3 +95,45 @@ R2_trust$country_name[R2_trust$country==15] <- "Mozambique"
 R2_trust$country_name[R2_trust$country==16] <- "Senegal"
 ```
 
+```{r}
+R7_trust$country_name <- NA_character_
+R7_trust$country_name[R7_trust$country==1] <- "Benin"
+R7_trust$country_name[R7_trust$country==2] <- "Botswana"
+R7_trust$country_name[R7_trust$country==3] <- "Brukina Faso"
+R7_trust$country_name[R7_trust$country==4] <- "Cabo Verde"
+R7_trust$country_name[R7_trust$country==5] <- "Cameroon"
+R7_trust$country_name[R7_trust$country==6] <- "Côte d'Ivoire"
+R7_trust$country_name[R7_trust$country==7] <- "eSwatini"
+R7_trust$country_name[R7_trust$country==8] <- "Gabon"
+R7_trust$country_name[R7_trust$country==9] <- "Gambia"
+R7_trust$country_name[R7_trust$country==10] <- "Ghana"
+R7_trust$country_name[R7_trust$country==11] <- "Guinea"
+R7_trust$country_name[R7_trust$country==12] <- "Kenya"
+R7_trust$country_name[R7_trust$country==13] <- "Lesotho"
+R7_trust$country_name[R7_trust$country==14] <- "Liberia"
+R7_trust$country_name[R7_trust$country==15] <- "Madagascar"
+R7_trust$country_name[R7_trust$country==16] <- "Malawi"
+R7_trust$country_name[R7_trust$country==17] <- "Mali"
+R7_trust$country_name[R7_trust$country==18] <- "Mauritius"
+R7_trust$country_name[R7_trust$country==19] <- "Morocco"
+R7_trust$country_name[R7_trust$country==20] <- "Mozambique"
+R7_trust$country_name[R7_trust$country==21] <- "Namibia"
+R7_trust$country_name[R7_trust$country==22] <- "Niger"
+R7_trust$country_name[R7_trust$country==23] <- "Nigeria"
+R7_trust$country_name[R7_trust$country==24] <- "São Tomé and Príncipe"
+R7_trust$country_name[R7_trust$country==25] <- "Senegal"
+R7_trust$country_name[R7_trust$country==26] <- "Sierra Leone"
+R7_trust$country_name[R7_trust$country==27] <- "South Africa"
+R7_trust$country_name[R7_trust$country==28] <- "Sudan"
+R7_trust$country_name[R7_trust$country==29] <- "Tanzania"
+R7_trust$country_name[R7_trust$country==30] <- "Togo"
+R7_trust$country_name[R7_trust$country==31] <- "Tunisia"
+R7_trust$country_name[R7_trust$country==32] <- "Uganda"
+R7_trust$country_name[R7_trust$country==33] <- "Zambia"
+R7_trust$country_name[R7_trust$country==34] <- "Zimbabwe"
+```
+
+```{r}
+
+```
+
