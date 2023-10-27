@@ -44,22 +44,42 @@ names(R2_trust)
 names(R8_trust)
 
 R2_trust <-
-  rename(R2_trust, "TL trust" = "q43k")
+  rename(R2_trust,
+         LG_trust = q43e,
+         TL_trust = q43k)
 
 R8_trust <-
   rename(R8_trust,
-         "country" = "COUNTRY",
-         "LG trust" = "Q41D",
-         "TL trust" = "Q41K")
+         country = COUNTRY,
+         LG_trust = Q41D,
+         TL_trust = Q41K)
 ```
 
 ```{r}
-library(tidyverse)
-library(ggplot2)
+## case_when
 
-R2_trust_Botswana <-
-  R2_trust |>
-  filter(country == 1) 
-  
+R2_trust <- R2_trust |>
+  mutate(country_name = case_when(country == 1 ~ "Botswana",
+                                  
+                                  TRUE ~ NA_character_))
+
+## another method 
+R2_trust$country_name <- NA_character_
+R2_trust$country_name[R2_trust$country==1] <- "Botswana"
+R2_trust$country_name[R2_trust$country==2] <- "Ghana"
+R2_trust$country_name[R2_trust$country==3] <- "Lesotho"
+R2_trust$country_name[R2_trust$country==4] <- "Malawi"
+R2_trust$country_name[R2_trust$country==5] <- "Mali"
+R2_trust$country_name[R2_trust$country==6] <- "Namibia"
+R2_trust$country_name[R2_trust$country==7] <- "Nigeria"
+R2_trust$country_name[R2_trust$country==8] <- "South Africa"
+R2_trust$country_name[R2_trust$country==9] <- "Tanzania"
+R2_trust$country_name[R2_trust$country==10] <- "Uganda"
+R2_trust$country_name[R2_trust$country==11] <- "Zambia"
+R2_trust$country_name[R2_trust$country==12] <- "Zimbabwe"
+R2_trust$country_name[R2_trust$country==13] <- "Cape Verde"
+R2_trust$country_name[R2_trust$country==14] <- "Kenya"
+R2_trust$country_name[R2_trust$country==15] <- "Mozambique"
+R2_trust$country_name[R2_trust$country==16] <- "Senegal"
 ```
 
