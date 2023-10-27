@@ -14,6 +14,7 @@ load("/Users/wakiko/Mac Google Drive/Harvard/Courses/Gov 50_Blackwell/afrobarome
 library(haven)
 round8 <- read_sav("data/afrobarometer_release-dataset_merge-34ctry_r8_en_2023-03-01.sav")
 round2 <- read_sav("data/merged_r2_data.sav")
+round7 <- read_sav("data/r7_merged_data_34ctry.release.sav")
 ```
 
 ```{r}
@@ -37,11 +38,16 @@ R2_trust <-
 R8_trust <-
   round8 |>
   select(c(COUNTRY, Q41D, Q41K))
+
+R7_trust <-
+  round7 |>
+  select(c(COUNTRY, Q43D, Q43J))
 ```
 
 ```{r}
 names(R2_trust) 
 names(R8_trust)
+names(R7_trust)
 
 R2_trust <-
   rename(R2_trust,
@@ -53,6 +59,12 @@ R8_trust <-
          country = COUNTRY,
          LG_trust = Q41D,
          TL_trust = Q41K)
+
+R7_trust <-
+  rename(R7_trust,
+         country = COUNTRY,
+         LG_trust = Q43D,
+         TL_trust = Q43J)
 ```
 
 ```{r}
