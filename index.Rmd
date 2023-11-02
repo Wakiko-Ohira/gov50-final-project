@@ -33,15 +33,18 @@ library(dplyr)
 
 R2_trust <-
   round2 |>
-  select(c(country, q43e, q43k))
+  select(c(country, q43e, q43k)) |>
+  mutate(round = "r2")
 
 R8_trust <-
   round8 |>
-  select(c(COUNTRY, Q41D, Q41K))
+  select(c(COUNTRY, Q41D, Q41K)) 
 
 R7_trust <-
   round7 |>
-  select(c(COUNTRY, Q43D, Q43J))
+  select(c(COUNTRY, Q43D, Q43J))　|>
+  mutate(round = "r7")
+
 ```
 
 ```{r}
@@ -126,19 +129,71 @@ R7_trust$country_name[R7_trust$country==33] <- "Zambia"
 R7_trust$country_name[R7_trust$country==34] <- "Zimbabwe"
 ```
 
+
+```{r}
+R2_trust_country_name <-
+  R2_trust |>
+  select(LG_trust:country_name)
+
+R7_trust_country_name <-
+  R7_trust |>
+  select(LG_trust:country_name)
+
+```
+
+```{r}
+all_rounds_country_name <- 
+  bind_rows(R2_trust_country_name, R7_trust_country_name)
+```
+
+```{r}
+library(dplyr)
+
+all_rounds <-
+dplyr::select(all_rounds_country_name, country_name, round, LG_trust, TL_trust)
+```
+
 ```{r}
 library(tidyverse)
 
-R2_trust |>
+diff_LG_trust <-
+  all_rounds |>
+  filter(country_name %in% c("Botswana", "Ghana", "Lesotho", "Malawi", "Mali", "Namibia", "Nigeria", "South Africa", "Tanzania", "Uganda", "Zambia", "Zimbabwe", "Kenya", "Mozambique", "Senegal")) |>
   filter(LG_trust %in% c("2", "3")) |>
-  group_by(country_name) |>
+  group_by(round, country_name) |>
   summarize(n = n()) |>
-  mutate(prop_LG_trust_high = n / sum(n))
-
-R2_trust |>
-  filter(TL_trust %in% c("2", "3")) |>
-  group_by(country_name) |>
-  summarize(n = n()) |>
-  mutate(prop_TL_trust_high = n / sum(n))
+  mutate(LG_trust_high = n / sum(n)) |>
+  select(-n) |>
+  pivot_wider(names_from = round, values_from = LG_trust_high) |>
+  mutate(diff_LG_trust = `r7` -`r2`)
+  
+  
 ```
 
+```{r}
+diff_TL_trust <-
+  all_rounds |>
+  filter(country_name %in% c("Botswana", "Ghana", "Lesotho", "Malawi", "Mali", "Namibia", "Nigeria", "South Africa", "Tanzania", "Uganda", "Zambia", "Zimbabwe", "Kenya", "Mozambique", "Senegal")) |>
+  filter(TL_trust %in% c("2", "3")) |>
+  group_by(round, country_name) |>
+  summarize(n = n()) |>
+  mutate(TL_trust_high = n / sum(n)) |>
+  select(-n) |>
+  pivot_wider(names_from = round, values_from = TL_trust_high) |>
+  mutate(diff_TL_trust = `r7` -`r2`)
+```
+
+
+```{r}
+diff_all_rounds <-
+  full_join(diff_LG_trust, diff_TL_trust, by = "country_name") 
+
+diff_all_rounds <- na.omit(diff_all_rounds)
+```
+
+
+
+
+## how to omit a response "9" from the data.
+filter(the variable name!=9)
+filter(LG_trust!=9)
