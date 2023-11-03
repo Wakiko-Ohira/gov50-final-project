@@ -194,5 +194,9 @@ plot_all_rounds_2_levels
 ```
 
 ## Interpretation of the graph 
+I compared Afrobaromter survey Round 2 and Round 7. In both rounds, Afrobarometer asked the following questions: How much do you trust your local government council? How much do you trust your traditional leaders? The answers are: 0 (not at all), 1 (just a little), 2 (somewhat), 3(a lot).
 
+In both questions, I compared the proportion of the respondents who answered either 2 (somewhat) and 3 (a lot) in Round 2 and Round 7, as shown in 'all_rounds_2_levels.' The plot shows that, in most countries, the more citizens trust in local government, the more they trust in traditional leaders. However, only in Uganda, the less citizens trust in local government, the more they trust in traditional leaders.
+
+At this point, I assume that the difference between Uganda and other countries is the level of democracy. My hypothesis is, in more democratic countries in Sub-Saharan Africa, people's trust in local government and their trust in traditional authorities correlate positively, and in semi-authoritarian countries like Uganda, people's trust in local government and their trust in traditional authorities have negative correlation. I will eventually combine this data from Afrobaromter with Polity to see if the level of democracy is related to the relationship between citizens' trust in local government and their trust in traditional leaders. 
 
