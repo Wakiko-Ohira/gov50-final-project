@@ -187,18 +187,12 @@ plot_all_rounds_2_levels <-
   all_rounds_2_levels |>
   ggplot(aes(x = diff_LG_trust, y = diff_TL_trust, color = country_name)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  labs(x = "Change in citizens' trust in local government between R2 and R7", y = "Change in citizens' trust in traditional leaders between R2 and R7", title = "Relationships between citizens' trust in local government and traditional leaders", caption = "Source: Afrobarometer")
 
 plot_all_rounds_2_levels
 ```
 
+## Interpretation of the graph 
+In most countries, the more citizens trust in local government 
 
-
-```{r}
-
-```
-
-
-## how to omit a response "9" from the data.
-filter(the variable name!=9)
-filter(LG_trust!=9)
