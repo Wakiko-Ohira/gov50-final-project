@@ -199,16 +199,6 @@ plot_all_rounds_2_levels
 ```
 
 
-```{r}
-diff_all_rounds <-
-  full_join(diff_LG_trust, diff_TL_trust, by = "country_name") 
-
-diff_all_rounds <- na.omit(diff_all_rounds)
-```
-
-
-
-
 ## how to omit a response "9" from the data.
 filter(the variable name!=9)
 filter(LG_trust!=9)
