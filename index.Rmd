@@ -194,5 +194,5 @@ plot_all_rounds_2_levels
 ```
 
 ## Interpretation of the graph 
-In most countries, the more citizens trust in local government 
+
 
