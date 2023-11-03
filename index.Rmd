@@ -156,31 +156,46 @@ dplyr::select(all_rounds_country_name, country_name, round, LG_trust, TL_trust)
 ```{r}
 library(tidyverse)
 
-diff_LG_trust <-
+all_rounds <-
   all_rounds |>
-  filter(country_name %in% c("Botswana", "Ghana", "Lesotho", "Malawi", "Mali", "Namibia", "Nigeria", "South Africa", "Tanzania", "Uganda", "Zambia", "Zimbabwe", "Kenya", "Mozambique", "Senegal")) |>
-  filter(LG_trust %in% c("2", "3")) |>
+  filter(country_name %in% c("Botswana", "Ghana", "Lesotho", "Malawi", "Mali", "Namibia", "Nigeria", "South Africa", "Tanzania", "Uganda", "Zambia", "Zimbabwe", "Kenya", "Senegal")) 
+
+all_rounds_2_levels <-
+  all_rounds |>
+  mutate(LG_trust_2levels = case_when(LG_trust <2~ 0,
+                                      LG_trust %in% c(2,3) ~ 1,
+                                      TRUE ~ NA_real_)) |>
+  mutate(TL_trust_2levels = case_when(TL_trust <2~ 0,
+                                      TL_trust %in% c(2,3) ~ 1,
+                                      TRUE ~ NA_real_))
+
+all_rounds_2_levels <-
+  all_rounds_2_levels |>
   group_by(round, country_name) |>
-  summarize(n = n()) |>
-  mutate(LG_trust_high = n / sum(n)) |>
-  select(-n) |>
-  pivot_wider(names_from = round, values_from = LG_trust_high) |>
-  mutate(diff_LG_trust = `r7` -`r2`)
+  summarize(avg_LG_trust = mean(LG_trust_2levels, na.rm = TRUE), avg_TL_trust = mean(TL_trust_2levels, na.rm = TRUE)) |>
+  pivot_wider(names_from = round, values_from = c("avg_LG_trust", "avg_TL_trust")) |>
+  mutate(diff_LG_trust = `avg_LG_trust_r7` - `avg_LG_trust_r2`) |>
+  mutate(diff_TL_trust = `avg_TL_trust_r7` - `avg_TL_trust_r2`) 
   
+         
+#all_rounds$LG_trust_3levels <- all_rounds$LG_trust       
+#all_rounds$LG_trust_3levels[all_rounds$LG_trust>1] <- 
   
 ```
+```{r}
+plot_all_rounds_2_levels <-
+  all_rounds_2_levels |>
+  ggplot(aes(x = diff_LG_trust, y = diff_TL_trust, color = country_name)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+plot_all_rounds_2_levels
+```
+
+
 
 ```{r}
-diff_TL_trust <-
-  all_rounds |>
-  filter(country_name %in% c("Botswana", "Ghana", "Lesotho", "Malawi", "Mali", "Namibia", "Nigeria", "South Africa", "Tanzania", "Uganda", "Zambia", "Zimbabwe", "Kenya", "Mozambique", "Senegal")) |>
-  filter(TL_trust %in% c("2", "3")) |>
-  group_by(round, country_name) |>
-  summarize(n = n()) |>
-  mutate(TL_trust_high = n / sum(n)) |>
-  select(-n) |>
-  pivot_wider(names_from = round, values_from = TL_trust_high) |>
-  mutate(diff_TL_trust = `r7` -`r2`)
+
 ```
 
 
