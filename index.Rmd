@@ -200,3 +200,22 @@ In both questions, I compared the proportion of the respondents who answered eit
 
 At this point, I assume that the difference between Uganda and other countries is the level of democracy. My hypothesis is, in more democratic countries in Sub-Saharan Africa, people's trust in local government and their trust in traditional authorities correlate positively, and in semi-authoritarian countries like Uganda, people's trust in local government and their trust in traditional authorities have negative correlation. I will eventually combine this data from Afrobaromter with Polity to see if the level of democracy is related to the relationship between citizens' trust in local government and their trust in traditional leaders. 
 
+
+## Adding labels besides the points 
+
+```{r}
+plot_all_rounds_2_levels <-
+  all_rounds_2_levels |>
+  ggplot(aes(x = diff_LG_trust, y = diff_TL_trust, color = country_name)) +
+  geom_point() +
+  geom_text(aes(label = country_name)) +
+  geom_smooth(method = "lm") +
+  labs(x = "Change in citizens' trust in LG between R2 and R7", y = "Change in citizens' trust in TL between R2 and R7", title = "Relationships between citizens' trust in local government and traditional leaders", caption = "Source: Afrobarometer")
+
+plot_all_rounds_2_levels
+```
+
+
+
+
+
