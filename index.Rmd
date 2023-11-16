@@ -228,17 +228,22 @@ polity_selected
 ```{r}
 allrounds_2levels_polity <- all_rounds_2_levels |>
   left_join(polity_selected, by = "country_name")
+
+allrounds_2levels_polity <- allrounds_2levels_polity |>
+  mutate(dem_level = case_when(polity >= 5 ~ "democracy",
+                               polity <= 5 & polity >= -5 ~ "anocracy",
+                               polity < -6 ~ "autocracy"))
 ```
 
 
 ```{r}
 plot_allrounds_2levels_polity <-
   allrounds_2levels_polity |>
-  ggplot(aes(x = diff_LG_trust, y = diff_TL_trust)) +
+  ggplot(aes(x = diff_LG_trust, y = diff_TL_trust, color = dem_level)) +
   geom_point() +
   geom_text(aes(label = country_name)) +
-  geom_smooth(method = "lm") +
-  labs(x = "Change in citizens' trust in LG, R2 and R7", y = "Change in citizens' trust in TL, R2 and R7", title = "Relationships between citizens' trust in LG and TL", caption = "Source: Afrobarometer")
+  geom_smooth(method = "lm", color = "darkgrey") +
+  labs(x = "Change in citizens' trust in LG", y = "Change in citizens' trust in TL", title = "Relationships between citizens' trust in LG and TL", caption = "Source: Afrobarometer, Round 2, Round 7")
 
 plot_allrounds_2levels_polity
 ```
