@@ -216,6 +216,20 @@ plot_all_rounds_2_levels
 ```
 
 
+```{r}
+polity_selected <- polity |>
+  filter(year == "2018") |>
+  select(polity_annual_country, polity) |>
+  rename(country_name = polity_annual_country)
+
+polity_selected
+```
+
+```{r}
+allrounds_2levels_polity <- all_rounds_2_levels |>
+  left_join(polity_selected, by = "country_name")
+```
+
 
 
 
