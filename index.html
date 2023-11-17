@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/afrobarometer_release-dataset_merge-34ctry_r8_en_2023-03-01.sav","data/merged_r2_data.sav","data/r7_merged_data_34ctry.release.sav","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","R2_codebook.pdf","R7_codebook.pdf"]}
+  {"type":"character","attributes":{},"value":["data/afrobarometer_release-dataset_merge-34ctry_r8_en_2023-03-01.sav","data/merged_r2_data.sav","data/r7_merged_data_34ctry.release.sav","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/figure-html5/unnamed-chunk-13-1.png","index_files/figure-html5/unnamed-chunk-16-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","R2_codebook.pdf","R7_codebook.pdf"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1713,7 +1713,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>diff_LG_trust</span>, y <span class='op'>=</span> <span class='va'>diff_TL_trust</span>, color <span class='op'>=</span> <span class='va'>country_name</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Change in citizens' trust in local government between R2 and R7"</span>, y <span class='op'>=</span> <span class='st'>"Change in citizens' trust in traditional leaders between R2 and R7"</span>, title <span class='op'>=</span> <span class='st'>"Relationships between citizens' trust in local government and traditional leaders"</span>, caption <span class='op'>=</span> <span class='st'>"Source: Afrobarometer"</span><span class='op'>)</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Change in citizens' trust in LG between R2 and R7"</span>, y <span class='op'>=</span> <span class='st'>"Change in citizens' trust in TL between R2 and R7"</span>, title <span class='op'>=</span> <span class='st'>"Relationships between citizens' trust in local government and traditional leaders"</span>, caption <span class='op'>=</span> <span class='st'>"Source: Afrobarometer"</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>plot_all_rounds_2_levels</span></span></code></pre>
 </div>
@@ -1723,7 +1723,104 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>I compared Afrobaromter survey Round 2 and Round 7. In both rounds, Afrobarometer asked the following questions: How much do you trust your local government council? How much do you trust your traditional leaders? The answers are: 0 (not at all), 1 (just a little), 2 (somewhat), 3(a lot).</p>
 <p>In both questions, I compared the proportion of the respondents who answered either 2 (somewhat) and 3 (a lot) in Round 2 and Round 7, as shown in ‘all_rounds_2_levels.’ The plot shows that, in most countries, the more citizens trust in local government, the more they trust in traditional leaders. However, only in Uganda, the less citizens trust in local government, the more they trust in traditional leaders.</p>
 <p>At this point, I assume that the difference between Uganda and other countries is the level of democracy. My hypothesis is, in more democratic countries in Sub-Saharan Africa, people’s trust in local government and their trust in traditional authorities correlate positively, and in semi-authoritarian countries like Uganda, people’s trust in local government and their trust in traditional authorities have negative correlation. I will eventually combine this data from Afrobaromter with Polity to see if the level of democracy is related to the relationship between citizens’ trust in local government and their trust in traditional leaders.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="adding-labels-besides-the-points">Adding labels besides the points</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot_all_rounds_2_levels</span> <span class='op'>&lt;-</span></span>
+<span>  <span class='va'>all_rounds_2_levels</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>diff_LG_trust</span>, y <span class='op'>=</span> <span class='va'>diff_TL_trust</span>, color <span class='op'>=</span> <span class='va'>country_name</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>country_name</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Change in citizens' trust in LG between R2 and R7"</span>, y <span class='op'>=</span> <span class='st'>"Change in citizens' trust in TL between R2 and R7"</span>, title <span class='op'>=</span> <span class='st'>"Relationships between citizens' trust in local government and traditional leaders"</span>, caption <span class='op'>=</span> <span class='st'>"Source: Afrobarometer"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot_all_rounds_2_levels</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+</div>
+<h2 id="adding-polity-scores-to-afrobarometer-data">Adding polity scores to Afrobarometer data</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>polity_selected</span> <span class='op'>&lt;-</span> <span class='va'>polity</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>year</span> <span class='op'>==</span> <span class='st'>"2018"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>polity_annual_country</span>, <span class='va'>polity</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>country_name <span class='op'>=</span> <span class='va'>polity_annual_country</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>polity_selected</span></span></code></pre>
+</div>
+<pre><code># A tibble: 167 × 2
+   country_name polity
+   &lt;chr&gt;         &lt;dbl&gt;
+ 1 Afghanistan      -1
+ 2 Albania           9
+ 3 Algeria           2
+ 4 Angola           -2
+ 5 Argentina         9
+ 6 Armenia           7
+ 7 Australia        10
+ 8 Austria          10
+ 9 Azerbaijan       -7
+10 Bahrain         -10
+# ℹ 157 more rows</code></pre>
+</div>
+<h2 id="creating-a-new-variable-regime-to-clasify-the-countries-into-democracy-open-anocracy-and-closed-autocracy.">Creating a new variable, regime, to clasify the countries into democracy, open anocracy, and closed autocracy.</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>allrounds_2levels_polity</span> <span class='op'>&lt;-</span> <span class='va'>all_rounds_2_levels</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>polity_selected</span>, by <span class='op'>=</span> <span class='st'>"country_name"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>allrounds_2levels_polity</span> <span class='op'>&lt;-</span> <span class='va'>allrounds_2levels_polity</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>regime <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span><span class='va'>polity</span> <span class='op'>&gt;=</span> <span class='fl'>5</span> <span class='op'>~</span> <span class='st'>"democracy"</span>,</span>
+<span>                               <span class='va'>polity</span> <span class='op'>&lt;=</span> <span class='fl'>4</span> <span class='op'>&amp;</span> <span class='va'>polity</span> <span class='op'>&gt;=</span> <span class='fl'>0</span> <span class='op'>~</span> <span class='st'>"open anocracy"</span>,</span>
+<span>                               <span class='va'>polity</span> <span class='op'>&lt;</span> <span class='fl'>0</span> <span class='op'>~</span> <span class='st'>"closed anocracy"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<h2 id="visualization">Visualization</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot_allrounds_2levels_polity</span> <span class='op'>&lt;-</span></span>
+<span>  <span class='va'>allrounds_2levels_polity</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>diff_LG_trust</span>, y <span class='op'>=</span> <span class='va'>diff_TL_trust</span>, color <span class='op'>=</span> <span class='va'>regime</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>country_name</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, color <span class='op'>=</span> <span class='st'>"darkgrey"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Change in citizens' trust in LG"</span>, y <span class='op'>=</span> <span class='st'>"Change in citizens' trust in TL"</span>, title <span class='op'>=</span> <span class='st'>"Relationships between citizens' trust in LG and TL"</span>, caption <span class='op'>=</span> <span class='st'>"Source: Afrobarometer, Round 2, Round 7"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot_allrounds_2levels_polity</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+</div>
+<h2 id="analysis">Analysis</h2>
+<p>I compared Afrobaromter survey Round 2 and Round 7. In both rounds, Afrobarometer asked the following questions: How much do you trust your local government council? How much do you trust your traditional leaders? The answers are: 0 (not at all), 1 (just a little), 2 (somewhat), 3(a lot).</p>
+<p>In both questions, I compared the proportion of the respondents who answered either 2 (somewhat) and 3 (a lot) in Round 2 and Round 7, as shown in ‘all_rounds_2_levels.’ The first visualization showed that, in most countries, the more citizens trust in local government, the more they trust in traditional leaders. However, only in Uganda, the less citizens trust in local government, the more they trust in traditional leaders.</p>
+<p>I assume that the difference between Uganda and other countries is the level of democracy. My hypothesis is, in more democratic countries in Sub-Saharan Africa, people’s trust in local government and their trust in traditional authorities correlate positively, and in semi-authoritarian countries like Uganda, people’s trust in local government and their trust in traditional authorities have negative correlation. Thus, I combined the data from Afrobarometer (all_rounds_2_levels) with Polity scores. Polity scores categorizes countries with scores between -10 to -6 as autocracies; -5 to +5 as anocracies (-5 to 0 closed anocracies; +1 to +5 open anocracies), and +6 to + 10 as democracies.</p>
+<p>The linear regression in the plot shows the positive correlation between people’s trust in local government and their trust in traditional authorities in more democratic countries (shown in green color and blue color). However, because Uganda is the only closed anocracy in the 14 countries where Afrobaromter conducted the surveys round 2 and round 7, this plot is not convincing enough to to show the relationship between a regime type (whether a country is democratic or not) and the relationship between people’s trust in local government and their trust in traditional leaders. (i.e. Because the sample size is too small, the p-value is too high.)</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit1</span> <span class='op'>&lt;-</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>diff_TL_trust</span> <span class='op'>~</span> <span class='va'>diff_LG_trust</span> <span class='op'>+</span> <span class='va'>polity</span>, data <span class='op'>=</span> <span class='va'>allrounds_2levels_polity</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>fit1</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = diff_TL_trust ~ diff_LG_trust + polity, data = allrounds_2levels_polity)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.22255 -0.08609  0.01216  0.06365  0.19514 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)    0.127970   0.087287   1.466    0.171
+diff_LG_trust  0.321624   0.302561   1.063    0.311
+polity        -0.009804   0.014068  -0.697    0.500
+
+Residual standard error: 0.1262 on 11 degrees of freedom
+Multiple R-squared:  0.1002,    Adjusted R-squared:  -0.06345 
+F-statistic: 0.6122 on 2 and 11 DF,  p-value: 0.5597</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
