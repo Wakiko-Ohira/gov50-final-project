@@ -215,6 +215,7 @@ plot_all_rounds_2_levels <-
 plot_all_rounds_2_levels
 ```
 
+## Adding polity scores to Afrobarometer data 
 
 ```{r}
 polity_selected <- polity |>
@@ -225,17 +226,18 @@ polity_selected <- polity |>
 polity_selected
 ```
 
+## Creating a new variable, regime, to clasify the countries into democracy, open anocracy, and closed autocracy. 
 ```{r}
 allrounds_2levels_polity <- all_rounds_2_levels |>
   left_join(polity_selected, by = "country_name")
 
 allrounds_2levels_polity <- allrounds_2levels_polity |>
   mutate(regime = case_when(polity >= 5 ~ "democracy",
-                               polity <= 5 & polity >= -5 ~ "anocracy",
-                               polity < -6 ~ "autocracy"))
+                               polity <= 4 & polity >= 0 ~ "open anocracy",
+                               polity < 0 ~ "closed anocracy"))
 ```
 
-
+## Visualization
 ```{r}
 plot_allrounds_2levels_polity <-
   allrounds_2levels_polity |>
@@ -248,5 +250,20 @@ plot_allrounds_2levels_polity <-
 plot_allrounds_2levels_polity
 ```
 
+## Analysis 
+I compared Afrobaromter survey Round 2 and Round 7. In both rounds, Afrobarometer asked the following questions: How much do you trust your local government council? How much do you trust your traditional leaders? The answers are: 0 (not at all), 1 (just a little), 2 (somewhat), 3(a lot).
+
+In both questions, I compared the proportion of the respondents who answered either 2 (somewhat) and 3 (a lot) in Round 2 and Round 7, as shown in 'all_rounds_2_levels.' The first visualization showed that, in most countries, the more citizens trust in local government, the more they trust in traditional leaders. However, only in Uganda, the less citizens trust in local government, the more they trust in traditional leaders.
+
+I assume that the difference between Uganda and other countries is the level of democracy. My hypothesis is, in more democratic countries in Sub-Saharan Africa, people's trust in local government and their trust in traditional authorities correlate positively, and in semi-authoritarian countries like Uganda, people's trust in local government and their trust in traditional authorities have negative correlation. Thus, I combined the data from Afrobarometer (all_rounds_2_levels) with Polity scores. Polity scores categorizes countries with scores between -10 to -6 as autocracies; -5 to +5 as anocracies (-5 to 0 closed anocracies; +1 to +5 open anocracies), and +6 to + 10 as democracies. 
+
+The linear regression in the plot shows the positive correlation between people's trust in local government and their trust in traditional authorities in more democratic countries (shown in green color and blue color). However, because Uganda is the only closed anocracy in the 14 countries where Afrobaromter conducted the surveys round 2 and round 7, this plot is not convincing enough to to show the relationship between a regime type (whether a country is democratic or not) and the relationship between people's trust in local government and their trust in traditional leaders. (i.e. Because the sample size is too small, the p-value is too high.)
+
+```{r}
+fit1 <- 
+lm(diff_TL_trust ~ diff_LG_trust + polity, data = allrounds_2levels_polity)
+
+summary(fit1)
+```
 
 
